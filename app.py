@@ -57,7 +57,7 @@ def predict_liver_disease(data):
     return pred, prob
 
 # Streamlit UI
-st.title("Health Prediction App")
+st.title("Health Disease Prediction App")
 
 # Select Prediction Model
 model_choice = st.selectbox("Select Prediction Model", ["Heart Disease Prediction","Kidney Disease Prediction","Hypertension Risk Prediction","Diabetes Outcome Prediction","Liver Disease Prediction"])
@@ -70,7 +70,7 @@ if model_choice == "Heart Disease Prediction":
     cp = st.selectbox("Chest Pain Type (cp)", [0, 1, 2, 3])
     trestbps = st.number_input("Resting Blood Pressure (trestbps)", min_value=94, max_value=200, value=94)
     chol = st.number_input("Cholesterol (chol)", min_value=127, max_value=600, value=127)
-    fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl (fbs)", [0, 1])
+    fbs = st.selectbox("Fasting Blood Sugar (fbs)", [0, 1])
     restecg = st.selectbox("Resting Electrocardiographic Results (restecg)", [0, 1, 2])
     thalach = st.number_input("Maximum Heart Rate Achieved (thalach)", min_value=71, max_value=250, value=71)
     exang = st.selectbox("Exercise Induced Angina (exang)", [0, 1])
@@ -168,9 +168,9 @@ elif model_choice == "Kidney Disease Prediction":
         with st.spinner('Making prediction...'):
             pred, prob = predict_kidney_disease(kidney_input_data)
             if pred == 1:
-                st.success(f"Prediction: having kidney disease {prob:.2f}")
+                st.error(f"Prediction:  Kidney Disease detected with probability {prob:.2f}")
             else:
-                st.error(f"Prediction: Not having kidney disease {prob:.2f}")
+                st.success(f"Prediction: No Kidney Disease detected with probability {prob:.2f}")
 
 # Input fields for Hypertension Risk Prediction
 elif model_choice == "Hypertension Risk Prediction":
@@ -186,7 +186,7 @@ elif model_choice == "Hypertension Risk Prediction":
     diaBP = st.number_input("diaBP", min_value=40.0, max_value=150.00, value=100.0, step=1.1)
     BMI = st.number_input("BMI", min_value=10, max_value=60, value=20, step=1)
     heartRate = st.number_input("heartRate", min_value=40, max_value=150, value=60, step=1)
-    glucose = st.number_input("glucose", min_value=0, max_value=1, value=0, step=1)
+    glucose = st.number_input("glucose", min_value=40, max_value=400, value=70, step=1)
 
     # Create the input dictionary for prediction
     hypertension_input_data = {
@@ -238,9 +238,9 @@ elif model_choice == "Diabetes Outcome Prediction":
     if st.button("Predict Diabetes Outcome"):
         pred, prob = predict_diabetes(diabetes_input_data)
         if pred == 1:
-            st.success(f"Prediction: Diabetes with probability {prob:.2f}")
+            st.error(f"Prediction: Diabetes detected with probability {prob:.2f}")
         else:
-            st.error(f"Prediction: No Diabetes with probability {prob:.2f}")
+            st.success(f"Prediction: No Diabetes detected with probability {prob:.2f}")
 
 # Input fields for Liver Disease Prediction
 elif model_choice == "Liver Disease Prediction":
