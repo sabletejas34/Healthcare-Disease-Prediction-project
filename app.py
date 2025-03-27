@@ -276,7 +276,7 @@ elif model_choice == "Liver Disease Prediction":
     # When the user clicks the "Predict" button
     if st.button("Predict"):
         with st.spinner('Making prediction...'):
-            pred, prob = predict_Dataset(liver_input_data)
+            pred, prob = predict_liver_disease(liver_input_data)
             if pred == 1:
                 st.error(f"Prediction: Liver Disease detected with probability {prob:.2f}")
             else:
