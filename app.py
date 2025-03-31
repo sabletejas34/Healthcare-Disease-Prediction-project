@@ -105,7 +105,7 @@ if model_choice == "Heart Disease Prediction":
 # Input fields for Kidney Disease Prediction
 elif model_choice == "Kidney Disease Prediction":
     st.header("Kidney Disease Prediction")
-    age = st.number_input("age",min_value=0.0, max_value=100.0, value=50.0, step=0.1)
+    age = st.number_input("age",min_value=0, max_value=100, value=50, step=1)
     bp = st.number_input("bp", min_value=50.0, max_value=180.0, value=70.0, step=0.1)
     sg = st.number_input("sg", min_value=1.0, max_value=2.0, value=1.5, step=0.1)
     al = st.number_input("al", min_value=0, max_value=5, value=1)
@@ -175,7 +175,7 @@ elif model_choice == "Kidney Disease Prediction":
 # Input fields for Hypertension Risk Prediction
 elif model_choice == "Hypertension Risk Prediction":
     st.header("Hypertension Risk Prediction")
-    male = st.number_input("male", min_value=0.0, max_value=1.0, value=0.0, step=0.1)
+    male = st.number_input("male", min_value=0, max_value=1, value=0, step=1)
     age = st.number_input("age", min_value=32, max_value=70, value=40, step=1)
     currentSmoker = st.number_input("currentSmoker", min_value=0, max_value=1, value=0, step=1)
     cigsPerDay = st.number_input("cigsPerDay", min_value=0, max_value=70, value=0, step=1)
@@ -222,7 +222,7 @@ elif model_choice == "Diabetes Outcome Prediction":
     Insulin = st.number_input("Insulin", min_value=0, max_value=1000, value=79)
     BMI = st.number_input("BMI", min_value=0.0, max_value=100.0, value=31.25)
     DiabetesPedigreeFunction = st.number_input("Diabetes Pedigree Function", min_value=0.0, max_value=5.0, value=1.0)
-    Age = st.number_input("Age", min_value=0.0, max_value=100.0, value=50.0)
+    Age = st.number_input("Age", min_value=1, max_value=100, value=50, step=1)
 
     diabetes_input_data = {
         'Pregnancies': Pregnancies,
